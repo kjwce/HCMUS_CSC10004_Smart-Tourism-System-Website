@@ -1,0 +1,588 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: linear-gradient(180deg, #fffaf7 0%, #ffe8da 50%, #fff5ee 100%);
+  color: #333;
+}
+
+/* ==== NAVBAR ==== */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 18px 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(255, 232, 218, 0.8);
+  backdrop-filter: blur(15px);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
+  z-index: 100;
+  transition: background 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo img {
+  width: 42px;
+  height: 42px;
+}
+
+.logo h2 {
+  font-size: 22px;
+  color: #222;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  animation: subtleFloat 3s ease-in-out infinite alternate;
+}
+
+/* Liên kết nav */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Đẩy avatar sang mép phải thanh navbar */
+.navbar .nav-links {
+  margin-left: auto;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  margin: 0 18px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nav-links a:hover,
+.nav-links a.active {
+  color: #ff9966;
+}
+
+/* Hiệu ứng underline mềm */
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(to right, #ffbfa3, #ff9966);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover::after,
+.nav-links a.active::after {
+  width: 100%;
+}
+
+/* Avatar căn giữa hoàn hảo */
+.user-avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 20px;
+  cursor: pointer;
+  position: relative;
+}
+
+.user-avatar img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #ff9966;
+  background: #fff;
+  object-fit: cover;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.user-avatar img:hover {
+  transform: scale(1.06);
+  box-shadow: 0 0 6px rgba(255, 153, 102, 0.5);
+}
+
+/* ===== Dropdown Menu Fade Effect (chuẩn chỉnh đẹp) ===== */
+.dropdown-menu {
+  position: absolute;
+  top: 55px;
+  right: 0;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column; /* 🧱 sắp xếp dọc */
+  min-width: 180px;
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(-8px);
+  pointer-events: none;
+  visibility: hidden;
+  transition: all 0.25s ease;
+  z-index: 100;
+  border: 1px solid #ffd6bf;
+}
+
+/* Hiện dropdown */
+.dropdown-menu.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+  visibility: visible;
+}
+
+/* Các item trong menu */
+.dropdown-menu a {
+  display: block;
+  padding: 12px 18px;
+  text-decoration: none;
+  color: #333;
+  font-size: 0.95rem;
+  border-bottom: 1px solid #f4f4f4; /* 🧩 thêm phân cách mềm giữa các dòng */
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+/* Item cuối cùng bỏ gạch chân */
+.dropdown-menu a:last-child {
+  border-bottom: none;
+}
+
+/* Hiệu ứng hover */
+.dropdown-menu a:hover {
+  background: #ffe8da;
+  color: #ff9966;
+}
+
+/* Logo nhẹ chuyển động */
+@keyframes subtleFloat {
+  0% { transform: translateY(0px); }
+  100% { transform: translateY(2px); }
+}
+
+/* ==== WELCOME SECTION ==== */
+.welcome-section {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 100px;
+  padding-bottom: 80px;
+  position: relative;
+  overflow: hidden;
+}
+.welcome-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #333;
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.7),
+      rgba(255, 255, 255, 0.7)
+    ),
+    url("../images/background.png") center/cover no-repeat;
+  background-attachment: fixed;
+  padding-top: 100px;
+}
+
+/* Gradient chuyển xuống phần dưới */
+.welcome-section::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 150px;
+  background: linear-gradient(to bottom, transparent, #fffaf7);
+}
+
+
+.welcome-content {
+  position: relative;
+  z-index: 2;
+  max-width: 800px;
+  color: #333;
+  padding: 0 20px;
+}
+
+.welcome-content h3 {
+  font-size: 1.8rem;
+  color: #666;
+  font-weight: 400;
+  margin-bottom: 10px;
+  opacity: 0;
+  animation: fadeSlide 1.2s ease forwards;
+}
+
+.welcome-content h1 {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #ff9966;
+  margin-bottom: 15px;
+  text-shadow: 1px 1px 3px rgba(255, 153, 102, 0.3);
+  opacity: 0;
+  animation: fadeSlide 1.5s ease forwards 0.2s;
+}
+
+.welcome-content p {
+  font-size: 1.1rem;
+  color: #555;
+  max-width: 600px;
+  margin: 0 auto 30px;
+  line-height: 1.7;
+  opacity: 0;
+  animation: fadeSlide 1.8s ease forwards 0.4s;
+}
+
+.login-btn {
+  background: linear-gradient(to right, #ffbfa3, #ff9966);
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 25px;
+  font-size: 1.1rem;
+  text-decoration: none;
+  transition: transform 0.3s, opacity 0.3s;
+  opacity: 0;
+  animation: fadeSlide 2s ease forwards 0.6s;
+}
+
+/* ==== BEAUTIFY WELCOME SECTION ==== */
+.title-gradient {
+  background: linear-gradient(to right, #ff9966, #ff5e62);
+  background-clip: text;              /* ✅ Thuộc tính chuẩn (cho Firefox 112+) */
+  -webkit-background-clip: text;      /* ✅ Thuộc tính cho Chrome, Safari, Edge */
+  -webkit-text-fill-color: transparent;
+  color: transparent;                 /* ✅ fallback an toàn */
+  animation: shineText 3s ease-in-out infinite alternate;
+}
+
+
+@keyframes shineText {
+  from { filter: brightness(1); }
+  to { filter: brightness(1.3); }
+}
+
+.welcome-user {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.hello-text {
+  font-size: 1.3rem;
+  color: #444;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 10px 20px;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(255, 153, 102, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+.logout-btn {
+  background: linear-gradient(to right, #ffbfa3, #ff9966);
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 25px;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(255, 153, 102, 0.3);
+}
+
+.logout-btn:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+
+@keyframes glow {
+  from { box-shadow: 0 0 10px rgba(255, 153, 102, 0.3); }
+  to { box-shadow: 0 0 25px rgba(255, 153, 102, 0.6); }
+}
+
+
+.login-btn:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* Hiệu ứng xuất hiện mượt */
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+/* BLEND TRANSITION */
+.transition-blend {
+  width: 100%;
+  height: 150px;
+  background: linear-gradient(to bottom, #ffe8da 0%, #fff 100%);
+}
+
+/* ABOUT */
+.intro-section {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(180deg, #fff 0%, #fffaf7 100%);
+  padding: 120px 0;
+}
+
+.intro-container {
+  background: #fff;
+  border-radius: 25px;
+  box-shadow: 0 8px 25px rgba(255, 153, 102, 0.15);
+  text-align: center;
+  padding: 70px 60px;
+  width: 75%;
+  border: 1px solid #ffd6bf;
+}
+
+.circle {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, #ffbfa3, #ffe8da);
+  margin: 0 auto 30px;
+}
+
+.intro-container h1 {
+  font-size: 2rem;
+  color: #222;
+  margin-bottom: 20px;
+}
+
+.intro-container p {
+  font-size: 1rem;
+  line-height: 1.8;
+  max-width: 700px;
+  margin: 0 auto;
+  color: #555;
+}
+
+/* ==== FOOTER ==== */
+.footer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  background: url("../images/cuoitrang.png") center bottom / cover no-repeat;
+  background-attachment: scroll;
+  text-align: center;
+  color: #333;
+  padding: 100px 10% 0;
+  margin: 0;
+  overflow: hidden;
+  min-height: 30vh; 
+}
+
+/* Lớp phủ pastel nhẹ */
+.footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 250, 247, 0.9);
+  z-index: 1;
+}
+
+/* Container chính */
+.footer-contact {
+  position: relative;
+  z-index: 2;
+  max-width: 1000px;
+  width: 100%;
+  margin-bottom: 60px;
+}
+
+/* Tiêu đề contact */
+.footer-contact h2 {
+  font-size: 2rem;
+  color: #222;
+  margin-bottom: 40px;
+}
+
+/* Khung contact box */
+.footer-contact-box {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(8px);
+  border-radius: 25px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  padding: 50px;
+  display: flex;
+  justify-content: space-between;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+
+/* Form và Info */
+.contact-info {
+  flex: 1;
+  min-width: 320px;
+}
+
+.contact-info p {
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+
+.contact-info i {
+  color: #ff9966;
+  margin-right: 10px;
+  font-size: 1.3rem;
+}
+
+.social-icons {
+  margin-top: 20px;
+}
+
+.social-icons a {
+  text-decoration: none;
+  color: #ff9966;
+  font-size: 28px;
+  margin-right: 15px;
+  transition: transform 0.3s ease;
+}
+
+.social-icons a:hover {
+  transform: scale(1.2);
+}
+
+/* Bản quyền cuối */
+.copyright {
+  position: relative;
+  z-index: 2;
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 40px;
+}
+
+html, body {
+  height: 50%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer {
+  flex-shrink: 0;
+}
+
+
+/* FADE ANIMATION */
+.fade-in {
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 1s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-up {
+  opacity: 0;
+  transform: translateY(60px);
+  animation: fadeUp 1.5s ease forwards;
+}
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ĐỊNH DẠNG NÚT CHUYỂN NGÔN NGỮ*/
+.lang-toggle2 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 20px;
+  cursor: pointer;
+}
+
+.lang-toggle2 .label {
+    font-size: 13px;
+    font-weight: 600;
+    color: #777;
+    transition: color 0.3s ease;
+}
+
+.lang-toggle2 .label.active {
+  color: #ff9966;
+}
+
+.track {
+    width: 45px; /* GIẢM KÍCH CỠ CHIỀU RỘNG */
+    height: 22px; /* GIẢM KÍCH CỠ CHIỀU CAO */
+    background: #ffbfa3;
+    border-radius: 20px;
+    position: relative;
+    transition: background 0.3s ease;
+}
+
+.slider {
+    width: 18px; 
+    height: 18px; 
+    background: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px; /* Vị trí VI */
+    transition: left 0.3s ease;
+}
+
+/* Khi EN */
+.track.active .slider {
+  left: 31px; /* EN position */
+}
+
+/* ĐỊNH DẠNG NÚT CHUYỂN NGÔN NGỮ KHI Ở TRONG NAVBAR */
+#langToggle2 {
+    /* Đảm bảo nó là một phần tử linh hoạt trong Flexbox */
+    margin-right: 20px; 
+    cursor: pointer;
+    padding: 6px 10px; /* GIẢM PADDING ĐỂ THU GỌN */
+    border-radius: 20px;
+    /* Xóa background và box-shadow cũ để hòa hợp với Navbar */
+    background: transparent;
+    box-shadow: none; 
+}

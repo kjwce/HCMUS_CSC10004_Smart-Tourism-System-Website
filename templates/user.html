@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FoodieFinds | User Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/user.css') }}" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/logo.png') }}">
+</head>
+<body>
+
+  <!--VI <-> EN-->
+  <div class="lang-toggle" id="langToggle" style="display: none;">
+    <span class="label left">VI</span>
+    <div class="track" id="langTrack"><div class="slider"></div></div>
+    <span class="label right">EN</span>
+  </div>
+
+  <!-- 🧡 SIDEBAR -->
+  <aside class="sidebar">
+    <div class="user-profile">
+      <img id="userAvatar" src="{{ url_for('static', filename='uploads/' + (session.avatar or 'default-avatar.png')) }}" alt="User Avatar">
+      <h3 id="userName">{{ session.username or 'Guest' }}</h3>
+    </div>
+
+    <nav class="menu">
+      <button class="menu-item active" data-section="profile"><i class="bx bx-user"></i> <span data-key="Profile">Profile</span></button>
+      <button class="menu-item" data-section="history"><i class="bx bx-time-five"></i> <span data-key="History">History</span></button>
+      <button class="menu-item" data-section="favorites"><i class="bx bx-heart"></i> <span data-key="Favorites">Favorites</span></button>
+      <button class="menu-item" data-section="password"><i class="bx bx-lock-alt"></i> <span data-key="Password">Password</span></button>
+      <button class="menu-item" id="backhome"><i class="bx bx-home"></i> <span data-key="Back Home">Back Home</span></button>
+    </nav>
+  </aside>
+
+  <!-- 🌿 MAIN CONTENT -->
+  <main class="content" id="contentArea">
+    <!-- PROFILE -->
+    <section id="profile" class="section active">
+      <div class="profile-card">
+        <h2 data-key="Your Profile">👤 Your Profile</h2>
+        <p class="subtitle" data-key="Your Avatar">Upload your avatar and check your email</p>
+
+        <form id="avatarForm" enctype="multipart/form-data">
+          <!-- ẨN input file gốc -->
+          <input type="file" name="avatar" id="avatarInput" accept="image/*" required style="display: none;" />
+          
+          <!-- Custom button + preview -->
+          <div class="avatar-upload-container">
+            <div class="avatar-preview" id="avatarPreview">
+              <img id="previewImage" src="{{ url_for('static', filename='uploads/' + (session.avatar or 'default-avatar.png')) }}" alt="Avatar Preview">
+            </div>
+            
+            <div class="upload-controls">
+              <button type="button" id="selectFileBtn" class="btn-select-file">
+                <i class='bx bx-image-add'></i>
+                <span data-key="Choose Image">Choose Image</span>
+              </button>
+              
+              <p class="file-name" id="fileName">
+                <span data-key="No file chosen">No file chosen</span>
+              </p>
+              
+              <button type="submit" class="btn-upload-submit" id="uploadSubmitBtn" disabled>
+                <i class='bx bx-upload'></i>
+                <span data-key="Upload Avatar">Upload Avatar</span>
+              </button>
+            </div>
+          </div>
+        </form>
+
+        <p><strong>Email:</strong> {{ session.email or 'Không có email' }}</p>
+      </div>
+    </section>
+
+    <!-- HISTORY -->
+    <section id="history" class="section">
+      <h2 data-key="Search History">🕓 Search History</h2>
+      <ul id="historyList" class="list-box"></ul>
+    </section>
+
+    <!-- FAVORITES -->
+    <section id="favorites" class="section">
+      <h2 data-key="Favorite Restaurants">❤️ Favorite Restaurants</h2>
+      <div id="favoritesGrid" class="favorites-grid"></div>
+    </section>
+
+    <!-- CHANGE PASSWORD -->
+    <section id="password" class="section">
+      <h2>🔒 <span data-key="Change Password">Change Password</span></h2>
+      <form id="passwordForm">
+        <label data-key="Current Password">Current Password</label>
+        <input type="password" placeholder="Current password" required data-key="Current Password"/>
+        <label data-key="New Password">New Password</label>
+        <input type="password" placeholder="New password" required data-key="New Password"/>
+        <label data-key="Confirm Password">Confirm Password</label>
+        <input type="password" placeholder="Confirm password" required data-key="Confirm Password"/>
+        <button type="submit" data-key="Update Password">Update Password</button>
+        <p id="passwordStatus" style="color:#ff9966; margin-top:10px;"></p>
+      </form>
+    </section>
+
+    <section id="settings" class="section">
+      <h2>⚙️ <span data-key="Settings">Settings</span></h2>
+      <div class="danger-zone">
+        <h3 data-key="Danger Zone">Danger Zone</h3>
+        <p data-key="Once you delete">Once you delete your account, there is no going back. Please be certain.</p>
+        <button id="btnDeleteAccount" class="btn-danger">
+          <i class='bx bx-trash'></i> <span data-key="Delete My Account">Delete My Account</span>
+        </button>
+      </div>
+    </section>
+    
+  </main>
+
+  <script>
+    window.USER_ID = "{{ session.get('username', 'anonymous') }}";
+  </script>
+
+  <script src="{{ url_for('static', filename='js/user.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/lang.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SIGN UP | FoodieFinds</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}" />
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/logo.png') }}">
+</head>
+<body>
+
+  <!--VI <-> EN-->
+  <div class="lang-toggle" id="langToggle" style="display: none;">
+    <span class="label left">VI</span>
+    <div class="track" id="langTrack"><div class="slider"></div></div>
+    <span class="label right">EN</span>
+  </div>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" />
+      <h2>FoodieFinds</h2>
+    </div>
+    <nav class="nav-links">
+      <a href="{{ url_for('home') }}" id="nav-home" data-key="Home">Home</a>
+      <a href="{{ url_for('home') }}#about" data-key="About">About</a>
+      <a href="{{ url_for('search') }}" id="nav-search" data-key="Search">Search</a>
+      <a href="{{ url_for('community') }}" data-key="Community">Community</a>
+    </nav>
+  </header>
+
+  <!-- SIGNUP CONTAINER -->
+  <div class="login-page">
+    <div class="login-container">
+      <h1 data-key="SIGN UP">SIGN UP</h1>
+
+      <!-- ⭐ FORM TRUYỀN THỐNG -->
+      <form method="POST" action="{{ url_for('auth.register') }}" id="signupForm">
+
+        <input type="text" name="username" placeholder="Username (no spaces)"
+               required oninput="this.value = this.value.replace(/\s/g, '')"
+               data-key="Username (no spaces)"/>
+
+        <input type="email" name="email" placeholder="Email" required 
+               data-key="Email"/>
+
+        <input type="password" name="password" placeholder="Password" required 
+               data-key="Password"/>
+
+        <input type="password" name="password2" placeholder="Enter password again"
+               required data-key="Enter password again"/>
+
+        <button type="submit" data-key="Create">Create</button>
+
+        {% if error %}
+          <p style="color:red;margin-top:10px;">{{ error }}</p>
+        {% endif %}
+      </form>
+
+      <p class="extra-links">
+        <a href="{{ url_for('form_login') }}" data-key="Already have an account? Log in">
+          Already have an account? Log in
+        </a>
+      </p>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2025 FoodieFinds. All rights reserved.</p>
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/lang.js') }}"></script>
+  <script>
+      document.getElementById("signupForm").addEventListener("submit", function(e) {
+          const btn = this.querySelector("button[type=submit]");
+
+          btn.disabled = true;
+          btn.innerText = "Processing...";
+
+          // chặn ấn lại liên tục
+          btn.style.opacity = "0.6";
+      });
+  </script>
+</body>
+</html>

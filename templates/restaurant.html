@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FoodieFinds | Restaurant</title>
+  
+  <!-- CSS Libraries -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.css" />
+  
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/restaurant.css') }}">
+  
+  <!-- Icons -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/logo.png') }}">
+</head>
+<body>
+
+  <!--VI <-> EN-->
+  <div class="lang-toggle" id="langToggle" style="display: none;">
+    <span class="label left">VI</span>
+    <div class="track" id="langTrack"><div class="slider"></div></div>
+    <span class="label right">EN</span>
+  </div>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" />
+      <h2>FoodieFinds</h2>
+    </div>
+    <nav class="nav-links">
+      <a href="{{ url_for('home') }}" id="nav-home" data-key="Home">Home</a>
+      <a href="{{ url_for('home') }}#about" data-key="About">About</a>
+      <a href="{{ url_for('search') }}" id="nav-search" data-key="Search">Search</a>
+      <a href="{{ url_for('community') }}" data-key="Community">Community</a>
+    </nav>
+    
+
+    {% if 'username' in session %}
+      <div class="user-avatar" id="userAvatar">
+        <img src="{{ url_for('static', filename='uploads/' + (session.avatar or 'default-avatar.png')) }}" alt="User Avatar">
+        <div class="dropdown-menu" id="userDropdown">
+          <a href="{{ url_for('form_user') }}" data-key="View Profile">View my profile</a>
+          <a href="{{ url_for('auth.logout', next=request.url) }}" data-key="Log out">Log out</a>
+        </div>
+      </div>
+    {% endif %}
+  </header>
+
+  <div class="map-content-container">
+    <div id="restaurant-map"></div>
+
+    <div class="info-panel" id="infoPanel">
+      <div class="panel-header">
+        <i class='bx bx-x close-panel-btn' id='closePanelBtn'></i>
+        <!-- CHỈ RENDER TIM KHI ĐÃ LOGIN (Jinja2 kiểm soát) -->
+        {% if 'username' in session %}
+          <i class='bx bx-heart' id='favoriteBtn'></i>
+        {% endif %}
+      </div>
+      
+      <!-- Nội dung chính sẽ được JS render vào đây -->
+      <div class="info-panel-content" id="panelContent"></div>
+    </div>
+  </div>
+
+  <!-- JavaScript Libraries -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-routing-machine@3.2.12/dist/leaflet-routing-machine.js"></script>
+  
+  <!-- Custom JavaScript -->
+  <script src="{{ url_for('static', filename='js/restaurant.js') }}"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const avatar = document.getElementById('userAvatar');
+      const dropdown = document.getElementById('userDropdown');
+
+      if (avatar && dropdown) {
+        avatar.addEventListener('click', (e) => {
+          e.stopPropagation();
+          dropdown.classList.toggle('show');
+        });
+
+        document.addEventListener('click', (e) => {
+          if (!avatar.contains(e.target)) {
+            dropdown.classList.remove('show');
+          }
+        });
+      }
+    });
+  </script>
+
+  <script src="{{ url_for('static', filename='js/lang.js') }}"></script>
+</body>
+</html>

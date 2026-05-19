@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FoodieFinds | Details</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/detail.css') }}">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/logo.png') }}">
+</head>
+<body data-user="{{ session.username if 'username' in session else '' }}">
+
+
+  <!-- Header -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo">
+      <h2>FoodieFinds</h2>
+    </div>
+    <nav class="nav-links">
+      <a href="{{ url_for('home') }}" id="nav-home" data-key="Home">Home</a>
+      <a href="{{ url_for('home') }}#about" data-key="About">About</a>
+      <a href="{{ url_for('search') }}" id="nav-search" data-key="Search">Search</a>
+      <a href="{{ url_for('community') }}" data-key="Community">Community</a>
+    </nav>
+
+    <!-- Nút chuyển ngôn ngữ-->
+    <div class="lang-toggle2" id="langToggle2">
+      <span class="label left">VI</span>
+      <div class="track" id="langTrack">
+        <div class="slider"></div>
+      </div>
+      <span class="label right">EN</span>
+    </div>
+
+    {% if 'username' in session %}
+      <div class="user-avatar" id="userAvatar">
+        <img src="{{ url_for('static', filename='uploads/' + (session.avatar or 'default-avatar.png')) }}" alt="User Avatar">
+        <div class="dropdown-menu" id="userDropdown">
+          <a href="{{ url_for('form_user') }}" data-key="View Profile">View my profile</a>
+          <a href="{{ url_for('auth.logout', next=request.url) }}" data-key="Log out">Log out</a>
+        </div>
+      </div>
+    {% endif %}
+  </header>
+
+  <!-- Restaurant details -->
+  <section class="restaurant-detail">
+    <div class="detail-container">
+      <div class="img-side">
+        <img id="restaurantImage" src="{{ url_for('static', filename='images/food1.png') }}" alt="Restaurant">
+      </div>
+      <div class="info-side">
+        <h1 id="restaurantName"></h1>
+        <div class="rating" id="restaurantRating"></div>
+        <p id="restaurantDesc"></p>
+        <button id="viewMapBtn" class="map-btn" data-key="View on Map">📍 View on Map</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Comment section -->
+  <section class="comment-section">
+    <h2 data-key="Reviews Header">Reviews</h2>
+
+    {% if session.username %}
+    <div id="commentForm">
+      <div class="rating-input">
+        <p data-key="Your rating">Your rating:</p>
+        <div class="rating-stars" id="ratingStars">
+          <i class="bx bx-star star" data-value="1"></i>
+          <i class="bx bx-star star" data-value="2"></i>
+          <i class="bx bx-star star" data-value="3"></i>
+          <i class="bx bx-star star" data-value="4"></i>
+          <i class="bx bx-star star" data-value="5"></i>
+        </div>
+        <span id="ratingValue">0/5</span>
+      </div>
+
+      <div class="comment-input-wrapper">
+        <div class="comment-toolbar">
+         <button id="commentImageBtn" class="img-upload-btn" title="Thêm ảnh" data-key="Add photo button">
+            <i class='bx bx-camera'></i>
+        </button>
+
+          <input type="file" id="commentImage" accept="image/*" hidden>
+        </div>
+        <textarea id="commentText" placeholder="Viết cảm nhận của bạn... (tối đa 500 ký tự)" maxlength="500" data-key="Comment placeholder"></textarea>
+        <div class="char-counter">
+          <span id="charCount">0</span>/<span data-key="Char limit">500 ký tự</span>
+        </div>
+        <div id="previewImage" class="preview-img" style="display:none;">
+          <img id="previewImgTag" src="">
+          <button id="removePreview" class="remove-preview" data-key="Remove photo">✖</button>
+        </div>
+      </div>
+      <button id="submitComment" data-key="Submit review">Gửi đánh giá</button>
+    </div>
+    {% else %}
+    <p style="color:#777; text-align:center; margin-top:10px;">
+      🔒 <span data-key="Login required">Ban phải</span> 
+      <a href="{{ url_for('form_login') }}" style="color:#ff7f50; text-decoration: none;" data-key="Login link">đăng nhập</a> 
+      <span data-key="Login required2">để bình luận.</span>
+    </p>
+    {% endif %}
+
+    <div id="commentList"></div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p data-key="Footer">© 2025 FoodieFinds. All rights reserved.</p>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="{{ url_for('static', filename='js/detail.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/lang.js') }}"></script>
+
+  <script>
+    // Dropdown avatar toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const avatar = document.getElementById('userAvatar');
+      const dropdown = document.getElementById('userDropdown');
+      if (avatar && dropdown) {
+        avatar.addEventListener('click', (e) => {
+          e.stopPropagation();
+          dropdown.classList.toggle('show');
+        });
+        document.addEventListener('click', (e) => {
+          if (!avatar.contains(e.target)) dropdown.classList.remove('show');
+        });
+      }
+    });
+  </script>
+
+  <!-- Edit comment modal -->
+  <div id="editModal" class="edit-modal">
+    <div class="edit-modal-content">
+      <h3 data-key="Edit comment modal header">Sửa bình luận</h3>
+      <textarea id="editCommentInput"></textarea>
+      <div class="edit-modal-buttons">
+        <button id="saveEditBtn" data-key="Save button">Lưu</button>
+        <button id="cancelEditBtn" data-key="Cancel button">Hủy</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

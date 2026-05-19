@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verify Email | FoodieFinds</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/logo.png') }}">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="logo">
+    <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" />
+    <h2>FoodieFinds</h2>
+  </div>
+</header>
+
+<!-- VERIFY BOX -->
+<div class="login-page">
+  <div class="login-container">
+
+    <h1 data-key="Verify your email">Verify your email</h1>
+
+    <form method="POST" action="{{ url_for('auth.verify_otp') }}">
+      <p data-key="Nhập mã OTP đã gửi đến email:" style="margin-bottom: 12px;">
+        Nhập mã OTP đã gửi đến email:
+      </p>
+
+      <input type="text" name="otp" placeholder="6-digit code" required />
+
+      <button type="submit" data-key="Verify">Verify</button>
+
+      {% if error %}
+        <p style="color:red; margin-top:10px;">{{ error }}</p>
+      {% endif %}
+
+      {% if message %}
+        <p style="color:green; margin-top:10px;">{{ message }}</p>
+      {% endif %}
+    </form>
+
+    <!-- RESEND OTP SECTION -->
+    <div style="margin-top: 18px; text-align:center; font-size:14px;">
+        <span id="resendOTP" style="color:#888; opacity:0.6; cursor:default;">
+            Gửi lại OTP (<span id="countdown">60</span>s)
+        </span>
+        <div id="resendMessage" style="margin-top:6px; height:18px;"></div>
+    </div>
+
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>© 2025 FoodieFinds. All rights reserved.</p>
+</footer>
+
+
+<script>
+let timeLeft = 60;
+const countdownEl = document.getElementById("countdown");
+const resendOTP = document.getElementById("resendOTP");
+const msgBox = document.getElementById("resendMessage");
+
+let timer = setInterval(() => {
+    timeLeft--;
+    countdownEl.textContent = timeLeft;
+
+    if (timeLeft <= 0) {
+        clearInterval(timer);
+        enableResend();
+    }
+}, 1000);
+
+function enableResend() {
+    resendOTP.style.opacity = "1";
+    resendOTP.style.color = "#007bff";
+    resendOTP.style.cursor = "pointer";
+    resendOTP.textContent = "Gửi lại OTP";
+
+    // thêm sự kiện click sau khi đã hết countdown
+    resendOTP.onclick = sendOTP;
+}
+
+function sendOTP() {
+    resendOTP.style.opacity = "0.5";
+    resendOTP.style.cursor = "default";
+    resendOTP.textContent = "Đang gửi...";
+
+    fetch("{{ url_for('auth.resend_otp') }}")
+        .then(r => r.json())
+        .then(data => {
+
+            if (data.error) {
+                msgBox.style.color = "red";
+                msgBox.textContent = data.error;
+                enableResend(); // cho bấm lại
+                return;
+            }
+
+            msgBox.style.color = "green";
+            msgBox.textContent = data.message;
+
+            // reset countdown
+            timeLeft = 60;
+            countdownEl.textContent = timeLeft;
+
+            resendOTP.style.opacity = "0.6";
+            resendOTP.style.color = "#888";
+            resendOTP.style.cursor = "default";
+            resendOTP.textContent = "Gửi lại OTP (60s)";
+
+            timer = setInterval(() => {
+                timeLeft--;
+                countdownEl.textContent = timeLeft;
+
+                if (timeLeft <= 0) {
+                    clearInterval(timer);
+                    enableResend();
+                }
+            }, 1000);
+        });
+}
+</script>
+
+</body>
+</html>

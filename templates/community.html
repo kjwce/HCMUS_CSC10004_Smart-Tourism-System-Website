@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FoodieFinds | Community</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/community.css') }}">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/logo.png') }}">  
+</head>
+<body data-user="{{ session.username or '' }}">
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" />
+      <h2>FoodieFinds</h2>
+    </div>
+    <nav class="nav-links">
+      <a href="{{ url_for('home') }}" id="nav-home" data-key="Home">Home</a>
+      <a href="{{ url_for('home') }}#about" data-key="About">About</a>
+      <a href="{{ url_for('search') }}" id="nav-search" data-key="Search">Search</a>
+      <a href="{{ url_for('community') }}" class="active" data-key="Community">Community</a>
+    </nav>
+
+    <!-- Nút chuyển ngôn ngữ-->
+    <div class="lang-toggle2" id="langToggle2">
+      <span class="label left">VI</span>
+      <div class="track" id="langTrack">
+        <div class="slider"></div>
+      </div>
+      <span class="label right">EN</span>
+    </div>
+    
+    {% if 'username' in session %}
+      <div class="user-avatar" id="userAvatar">
+        <img src="{{ url_for('static', filename='uploads/' + (session.avatar or 'default-avatar.png')) }}" alt="User Avatar">
+        <div class="dropdown-menu" id="userDropdown">
+          <a href="{{ url_for('form_user') }}" data-key="View Profile">View my profile</a>
+          <a href="{{ url_for('auth.logout', next=request.url) }}" data-key="Log out">Log out</a>
+        </div>
+      </div>
+    {% endif %}
+  </header>
+
+  <section class="popular-section" style="padding-top: 100px;">
+    <h1 data-key="Foodie Community">Foodie Community </h1>
+    <p class="desc" data-key="Description4">Kết nối đam mê ẩm thực 3 miền Bắc - Trung - Nam</p>
+
+    <div class="decor decor-left"></div>
+    <div class="decor decor-right"></div>
+
+    <div class="carousel-wrapper chat-mode">
+        
+      <div class="room-selector" id="roomSelector">
+        <div class="cat-item active" data-topic="food" data-key="Cuisine">🍜 Ẩm thực</div>
+        <div class="cat-item" data-topic="travel" data-key="Travel tips">🧭 Mẹo du lịch</div>
+        <div class="cat-item" data-topic="random" data-key="Random">✨ Linh tinh</div>
+      </div>
+
+      <div class="chat-display-area" id="communityMessages"></div>
+
+      <div class="chat-input-footer">
+        <!-- Emoji Picker -->
+        <div id="emojiPicker" class="emoji-picker"></div>
+
+        <!-- Nút Emoji -->
+        <button class="footer-btn" id="emojiBtn"><i class='bx bx-smile'></i></button>
+
+        <!-- Upload image -->
+        <input type="file" id="imgInput" accept="image/*" hidden>
+        <button class="footer-btn" id="imgBtn"><i class='bx bx-image-add'></i></button>
+
+        <textarea id="communityInput" 
+          placeholder="Chia sẻ câu chuyện ăn uống của bạn..."
+          rows="1" data-key="Share story"></textarea>
+
+        <button class="footer-btn send" id="sendBtn"><i class='bx bx-send'></i></button>
+      </div>
+      
+      {% if 'username' not in session %}
+      <div class="login-warning">
+        🔒 <a href="{{ url_for('form_login') }}" data-key="Log in">Đăng nhập</a> <span data-key="Join Community">để tham gia cộng đồng!</span>
+      </div>
+      {% endif %}
+    </div>
+  </section>
+
+  <!-- CHATBOT ICON -->
+  <div class="chatbot-icon" id="chatbotIcon">
+    <img src="{{ url_for('static', filename='images/robot.png') }}" alt="Chatbot">
+  </div>
+
+  <!-- CHATBOX POPUP -->
+  <div class="chatbox" id="chatbox">
+    <div class="chatbox-header">
+      <h3>Foodie Chatbot 🤖</h3>
+      <i class="bx bx-x" id="closeChat"></i>
+    </div>
+
+      <!-- Language Toggle  -->
+    <div class="lang-toggle" id="langToggle" style="display: flex;">
+      <button id="langVi" class="active">VI</button>
+      <button id="langEn">EN</button>
+    </div>
+
+    <div class="chatbox-body" id="chatBody">
+      <div class="message">
+        <p class="bot-message" data-key="Bot Greeting">👋 Hello! I'm your food assistant. I can help you:
+• Find delicious dishes 🍜
+• Translate menu images 📸 (Click + button)
+• Suggest restaurants 📍
+
+🌐 <b>Language mode:</b>
+• <b>EN</b>: I respond in <b>English</b>
+• <b>VI</b>: I respond in <b>Vietnamese</b>
+
+How can I help you today?</p>
+      </div>
+    </div>
+
+    <div class="chatbox-footer">
+      <input type="file" id="imageInput" accept="image/*">
+      <button class="upload-btn" id="uploadBtn" title="Upload menu image">
+        <i class='bx bx-image-add'></i>
+      </button>
+      <input type="text" id="chatInput" placeholder="Type your message..." data-key="Type your message">
+      <button id="sendChat">
+        <i class='bx bx-send'></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- 🧡 FOOTER -->
+  <footer class="footer">
+    <p>© 2025 FoodieFinds. All rights reserved.</p>
+  </footer>
+
+  <!-- JS -->
+  <script src="{{ url_for('static', filename='js/community.js') }}"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const avatar = document.getElementById('userAvatar');
+      const dropdown = document.getElementById('userDropdown');
+
+      if (avatar && dropdown) {
+        avatar.addEventListener('click', (e) => {
+          e.stopPropagation(); // tránh xung đột khi click ngoài
+          dropdown.classList.toggle('show');
+        });
+
+        // Ẩn dropdown khi click ra ngoài
+        document.addEventListener('click', (e) => {
+          if (!avatar.contains(e.target)) {
+            dropdown.classList.remove('show');
+          }
+        });
+      }
+    });
+  </script>
+
+  <script src="{{ url_for('static', filename='js/lang.js') }}"></script>
+</body>
+</html>

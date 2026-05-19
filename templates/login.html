@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LOG IN | FoodieFinds</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}" />
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/logo.png') }}">
+</head>
+<body>
+
+  <!-- Nút chuyển ngôn ngữ-->
+  <div class="lang-toggle2" id="langToggle2">
+    <span class="label left">VI</span>
+    <div class="track" id="langTrack">
+      <div class="slider"></div>
+    </div>
+    <span class="label right">EN</span>
+  </div>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" />
+      <h2>FoodieFinds</h2>
+    </div>
+    <nav class="nav-links">
+      <a href="{{ url_for('home') }}" data-key="Home">Home</a>
+      <a href="{{ url_for('home') }}#about" data-key="About">About</a>
+      <a href="{{ url_for('search') }}" data-key="Search">Search</a>
+      <a href="{{ url_for('community') }}" data-key="Community">Community</a>
+    </nav>
+  </header>
+
+  <!-- LOGIN FORM -->
+  <div class="login-page">
+    <div class="login-container">
+      <h1 data-key="LOG IN">LOG IN</h1>
+
+      <!-- ⚠️ form phải có method="POST" và action trỏ đến route /auth/login -->
+      <form method="POST" action="{{ url_for('auth.login') }}">
+        <!-- dùng name="username" thay vì email để đúng với backend -->
+        <input type="hidden" name="next" value="{{ request.referrer }}">
+        <input type="text" name="username" placeholder="Username" required 
+        oninput="this.value = this.value.replace(/\s/g, '')" data-key="Username"/>
+        <input type="password" name="password" placeholder="Password" required data-key="Password"/>
+        <button type="submit" data-key="Log in">Log in</button>
+
+        {% if error %}
+          <p class="error" style="color: red;">{{ error }}</p>
+        {% endif %}
+
+        <p class="extra-links">
+          <a href="{{ url_for('form_forgot') }}" data-key="Forgot password">Forgot password?</a> | 
+          <a href="{{ url_for('form_signup') }}" data-key="Create account">Create new account</a>
+        </p>
+      </form>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>© 2025 FoodieFinds. All rights reserved.</p>
+  </footer>
+  <script src="{{ url_for('static', filename='js/lang.js') }}"></script>
+</body>
+</html>

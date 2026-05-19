@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FoodieFinds | Search</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/search.css') }}">
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/logo.png') }}">
+</head>
+<body>
+
+  <script>
+    window.USER_ID = "{{ session.get('username', 'anonymous') }}";
+  </script>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" />
+      <h2>FoodieFinds</h2>
+    </div>
+    <nav class="nav-links">
+      <a href="{{ url_for('home') }}" id="nav-home" data-key="Home">Home</a>
+      <a href="{{ url_for('home') }}#about" data-key="About">About</a>
+      <a href="{{ url_for('search') }}" class="active" id="nav-search" data-key="Search">Search</a>
+      <a href="{{ url_for('community') }}" data-key="Community">Community</a>
+    </nav>
+
+    <!-- Nút chuyển ngôn ngữ-->
+    <div class="lang-toggle2" id="langToggle2">
+      <span class="label left">VI</span>
+      <div class="track" id="langTrack">
+        <div class="slider"></div>
+      </div>
+      <span class="label right">EN</span>
+    </div>
+
+
+    {% if 'username' in session %}
+      <div class="user-avatar" id="userAvatar">
+        <img src="{{ url_for('static', filename='uploads/' + (session.avatar or 'default-avatar.png')) }}" alt="User Avatar">
+        <div class="dropdown-menu" id="userDropdown">
+          <a href="{{ url_for('form_user') }}" data-key="View Profile">View my profile</a>
+          <a href="{{ url_for('auth.logout', next=request.url) }}" data-key="Log out">Log out</a>
+        </div>
+      </div>
+    {% endif %}
+  </header>
+
+  <!-- SEARCH SECTION -->
+  <section class="search-section">
+    <div class="search-title-container">
+      <h1 data-key="Find restaurants">Discover a great dining spot</h1>
+    </div>
+<!-- filter-container ... -->
+
+    <div class="filter-container">
+
+      <div class="filter-item">
+        <label for="searchName" data-key="Dish name">Dish name </label>
+        <div class="search-container">
+          <input
+            type="text"
+            id="searchName"
+            placeholder="Enter dish name..."
+            autocomplete="off"
+            required
+            data-key="Enter dish name"
+          >
+          <ul id="suggestionsList" class="suggestions-list hidden"></ul>
+        </div>
+      </div>
+
+      <div class="filter-item">
+        <label for="searchType" data-key="Type of restaurant">Type of restaurant</label>
+        <select id="searchType">
+          <option value="" data-key="All types">All types</option>
+          <option value="Quán ăn" data-key="Casual Eatery">Casual Eatery</option>
+          <option value="Ăn vặt/vỉa hè" data-key="Street food vender">Street food vender</option>
+          <option value="Nhà hàng" data-key="Restaurant">Restaurant</option>
+          <option value="Tiệm bánh" data-key="Bakery">Bakery</option>
+          <option value="Café/Dessert" data-key="Café/Dessert">Café/Dessert</option>
+          <option value="Món chay" data-key="Vegetarian">Vegetarian</option>
+        </select>
+      </div>
+
+      <div class="filter-item">
+        <label for="searchPrice" data-key="Budget">Budget (per person)</label>
+        <select id="searchPrice">
+          <option value="0-0" selected data-key="All prices">All prices</option>
+          <option value="0-50000">≤ 50.000₫</option>
+          <option value="50000-100000">50.000₫ - 100.000₫</option>
+          <option value="100000-200000">100.000₫ - 200.000₫</option>
+          <option value="200000-300000">200.000₫ - 300.000₫</option>
+          <option value="300000-500000">300.000₫ - 500.000₫</option>
+          <option value="500000-1000000">500.000₫ - 1.000.000₫</option>
+        </select>
+      </div>
+
+      <div class="filter-item">
+        <label for="searchDistance" data-key="Radius">Max Radius (km)</label>
+        <select id="searchDistance">
+          <option value="0" selected data-key="Any distance">Any distance</option>
+          <option value="1">≤ 1 km</option>
+          <option value="3">≤ 3 km</option>
+          <option value="5">≤ 5 km</option>
+          <option value="10">≤ 10 km</option>
+          <option value="20">≤ 20 km</option>
+        </select>
+      </div>
+
+      <!-- PHẦN NÀY ĐÃ ĐƯỢC SỬA (thêm class center-item) -->
+      <div class="filter-item location-detect center-item">
+        <label data-key="Location">Your Location *</label>
+        <div class="loc-row">
+          <input type="text" id="userLocation" placeholder="Enter address or detect automatically..." data-key="Enter address">
+          <button id="detectBtn" ><i class="bx bx-map"></i> <span data-key="Detect">Detect</span></button>
+        </div>
+      </div>
+
+    </div>
+
+    <button id="filterBtn" ><i class="bx bx-search"></i> <span data-key="Search button"><Search></Search></span></button>
+
+    <!-- Nút Search by Image -->
+    <button id="imageSearchBtn"><i class='bx bx-image-alt'></i> <span data-key="SearchByImage">Search by Image</span></button>
+
+    <!-- Modal Upload Image -->
+    <div id="imageUploadModal" class="image-upload-modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 data-key="Upload Food Image"></h3data-key>>Upload Food Image</h3>
+          <i class="bx bx-x" id="closeImageModal"></i>
+        </div>
+        <div class="modal-body">
+          <div class="upload-area" id="uploadArea">
+            <i class='bx bx-cloud-upload'></i>
+            <p data-key="Drag & drop">Drag & drop your food image here</p>
+            <p class="upload-subtext" data-key="or">or</p>
+            <button class="browse-btn" data-key="Browse Files">Browse Files</button>
+            <input type="file" id="imageInputSearch" accept="image/*" style="display: none;">
+          </div>
+          <div class="image-preview" id="imagePreview" style="display: none;">
+            <img id="previewImg" src="" alt="Preview">
+            <button class="remove-btn" id="removeImage" data-key="Remove"><i class='bx bx-trash'></i> Remove</button>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button class="cancel-btn" id="cancelUpload" data-key="Cancel">Cancel</button>
+          <button class="search-image-btn" id="searchWithImage" disabled data-key="Search This Food">Search This Food</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="loading" class="loading">
+      <i class="bx bx-loader-alt bx-spin"></i>
+      <p data-key="Uploading...">Uploading...</p>
+    </div>
+
+    <div id="searchResults" class="search-results"></div>
+  </section>
+
+
+<!-- 🍽️ POPULAR RESTAURANTS -->
+  <section class="popular-section">
+    <!-- <h1>Popular Restaurants 🍽️</h1> -->
+    <!-- <p class="desc">Explore top-rated local favorites, chosen by the FoodieFinds community!</p> -->
+
+    <div class="popular-title-container">
+      <h1 data-key="Popular Restaurants">Popular Restaurants</h1>
+      <p class="desc" data-key="Description3">Explore top-rated local favorites, chosen by the FoodieFinds community!</p>
+    </div>
+    <div class="decor decor-left"></div>
+    <div class="decor decor-right"></div>
+
+    <div class="carousel-wrapper">
+      <i class="bx bx-chevron-left nav-btn" id="prevBtn"></i>
+      <div class="carousel-track" id="carouselTrack"></div>
+      <i class="bx bx-chevron-right nav-btn" id="nextBtn"></i>
+    </div>
+  </section>
+
+  <!-- CHATBOT ICON -->
+  <div class="chatbot-icon" id="chatbotIcon">
+    <img src="{{ url_for('static', filename='images/robot.png') }}" alt="Chatbot">
+  </div>
+
+  <!-- CHATBOX POPUP -->
+  <div class="chatbox" id="chatbox">
+    <div class="chatbox-header">
+      <h3>Foodie Chatbot 🤖</h3>
+      <i class="bx bx-x" id="closeChat"></i>
+    </div>
+
+      <!-- Language Toggle  -->
+    <div class="lang-toggle" id="langToggle" style="display: flex;">
+      <button id="langVi" class="active">VI</button>
+      <button id="langEn">EN</button>
+    </div>
+
+    <div class="chatbox-body" id="chatBody">
+      <div class="message">
+        <p class="bot-message" data-key="Bot Greeting">👋 Hello! I'm your food assistant. I can help you:
+• Find delicious dishes 🍜
+• Translate menu images 📸 (Click + button)
+• Suggest restaurants 📍
+
+🌐 <b>Language mode:</b>
+• <b>EN</b>: I respond in <b>English</b>
+• <b>VI</b>: I respond in <b>Vietnamese</b>
+
+How can I help you today?</p>
+      </div>
+    </div>
+
+    <div class="chatbox-footer">
+      <input type="file" id="imageInput" accept="image/*">
+      <button class="upload-btn" id="uploadBtn" title="Upload menu image">
+        <i class='bx bx-image-add'></i>
+      </button>
+      <input type="text" id="chatInput" placeholder="Type your message...">
+      <button id="sendChat">
+        <i class='bx bx-send'></i>
+      </button>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <p>© 2025 FoodieFinds. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const avatar = document.getElementById('userAvatar');
+      const dropdown = document.getElementById('userDropdown');
+
+      if (avatar && dropdown) {
+        avatar.addEventListener('click', (e) => {
+          e.stopPropagation(); // tránh xung đột khi click ngoài
+          dropdown.classList.toggle('show');
+        });
+
+        // Ẩn dropdown khi click ra ngoài
+        document.addEventListener('click', (e) => {
+          if (!avatar.contains(e.target)) {
+            dropdown.classList.remove('show');
+          }
+        });
+      }
+    });
+  </script>
+
+  <script src="{{ url_for('static', filename='js/search.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/lang.js') }}"></script>
+</body>
+</html>

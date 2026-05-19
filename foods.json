@@ -1,0 +1,697 @@
+[
+    {
+    "name": "Phở bò",
+    "origin": "Hà Nội, Việt Nam",
+    "category": "Món nước",
+    "price_range": "50,000 - 70,000 VND",
+    "ingredients": ["bánh phở", "thịt bò", "quế hồi", "tiêu", "gừng", "hành"],
+    "allergens": ["gluten"],
+    "calos": "350 - 450 calo",
+    "serving_size": "1 bát ~ 400g",
+    "cooking_method": "ninh xương, luộc thịt, pha nước dùng",
+    "flavor_profile": "ngọt xương, thơm hành gừng, nhẹ cay",
+    "diet_type": {"vegetarian": false, "low_carb": false},
+    "history": "Phở xuất hiện từ đầu thế kỷ 20 tại Hà Nội, dần trở thành món ăn biểu tượng của Việt Nam.",
+    "cultural_significance": "Phở là biểu tượng văn hóa Việt Nam, thường được xem như món ăn quốc hồn quốc túy.",
+    "taste": "Nước dùng trong, vị ngọt xương, thơm hành gừng.",
+    "suggestions": [
+      "Bạn có muốn biết thêm về lịch sử phở bò không?",
+      "Bạn muốn biết thành phần và calo của món này chứ?",
+      "Bạn muốn tôi gợi ý thêm món tương tự không?"
+    ]
+  },
+  {
+    "name": "Bánh mì thịt",
+    "origin": "Sài Gòn, Việt Nam",
+    "category": "Món ăn nhanh",
+    "price_range": "20,000 - 35,000 VND",
+    "ingredients": ["bánh mì", "chả lụa", "thịt nguội", "dưa leo", "rau thơm", "tương ớt"],
+    "allergens": ["gluten", "thịt"],
+    "calos": "250 - 350 calo",
+    "serving_size": "1 ổ ~ 200g",
+    "cooking_method": "nướng, kẹp nhân",
+    "flavor_profile": "giòn bên ngoài, mềm bên trong, nhân mặn ngọt hài hòa",
+    "diet_type": {"vegetarian": false, "low_carb": false},
+    "history": "Bánh mì xuất hiện từ thời Pháp thuộc và được biến tấu theo khẩu vị Việt.",
+    "cultural_significance": "Bánh mì được xem là 'sandwich kiểu Việt', nổi tiếng trên toàn thế giới.",
+    "taste": "Giòn bên ngoài, mềm bên trong, nhân mặn ngọt hài hòa.",
+    "suggestions": [
+      "Bạn có muốn biết thêm về lịch sử bánh mì thịt không?",
+      "Bạn muốn tôi gợi ý các loại nhân bánh mì phổ biến không?",
+      "Bạn muốn biết lượng calo và thành phần dị ứng của bánh mì không?"
+    ]
+  },
+  {
+    "name": "Bún chả",
+    "origin": "Hà Nội, Việt Nam",
+    "category": "Món nước",
+    "price_range": "40,000 - 60,000 VND",
+    "ingredients": ["bún", "thịt nướng", "nước mắm chua ngọt", "rau sống"],
+    "allergens": ["thịt", "gluten (nếu bún làm từ lúa mì)"],
+    "calos": "400 - 500 calo",
+    "serving_size": "1 phần ~ 300g",
+    "cooking_method": "nướng thịt, pha nước chấm",
+    "flavor_profile": "vị đậm đà, ngọt nhẹ, hòa quyện thịt nướng và nước chấm",
+    "diet_type": {"vegetarian": false, "low_carb": false},
+    "history": "Bún chả xuất hiện từ thế kỷ 19 và là món ăn đặc trưng của người Hà Nội.",
+    "cultural_significance": "Món ăn từng được Tổng thống Obama thưởng thức trong chuyến thăm Việt Nam.",
+    "taste": "Vị đậm đà, ngọt nhẹ, hòa quyện giữa thịt nướng và nước chấm.",
+    "suggestions": [
+      "Bạn có muốn biết thêm về lịch sử bún chả không?",
+      "Bạn muốn tôi gợi ý các món nướng tương tự chứ?",
+      "Bạn có muốn biết lượng calo và thành phần dị ứng của bún chả không?"
+    ]
+  },
+  {
+    "name": "Cơm tấm",
+    "origin": "TP. Hồ Chí Minh, Việt Nam",
+    "category": "Món chính",
+    "price_range": "35,000 - 55,000 VND",
+    "ingredients": ["gạo tấm", "sườn nướng", "bì", "chả trứng", "nước mắm"],
+    "allergens": ["trứng", "thịt", "gluten (nếu có)"],
+    "calos": "450 - 550 calo",
+    "serving_size": "1 phần ~ 400g",
+    "cooking_method": "nướng sườn, hấp chả trứng, pha nước mắm",
+    "flavor_profile": "vị mặn ngọt, thơm mùi sườn nướng, hòa quyện nước mắm tỏi ớt",
+    "diet_type": {"vegetarian": false, "low_carb": false},
+    "history": "Cơm tấm bắt nguồn từ những hạt gạo vỡ của người lao động miền Nam.",
+    "cultural_significance": "Là món ăn biểu tượng của Sài Gòn, được người dân yêu thích mọi lúc trong ngày.",
+    "taste": "Vị mặn ngọt, thơm mùi sườn nướng, hòa quyện nước mắm tỏi ớt.",
+    "suggestions": [
+      "Bạn có muốn biết thêm về lịch sử cơm tấm không?",
+      "Bạn muốn tôi gợi ý công thức ướp sườn đặc trưng chứ?",
+      "Bạn có muốn biết lượng calo và thành phần dị ứng của cơm tấm không?"
+    ]
+  },
+   {
+    "name": "Bánh xèo",
+    "origin": "Miền Trung và Nam Bộ, Việt Nam",
+    "category": "Món chiên",
+    "price_range": "30,000 - 50,000 VND",
+    "ingredients": ["bột gạo", "tôm", "thịt heo", "giá đỗ", "rau sống"],
+    "allergens": ["tôm", "thịt heo", "gluten (bột gạo)"],
+    "calos": "350 - 450 calo",
+    "serving_size": "1 cái ~ 200g",
+    "cooking_method": "chiên giòn",
+    "flavor_profile": "giòn rụm bên ngoài, nhân tươi ngon, chấm nước mắm pha",
+    "diet_type": {"vegetarian": false, "low_carb": false},
+    "history": "Bánh xèo có nguồn gốc từ miền Trung, mang tên gọi vì tiếng 'xèo' khi chiên.",
+    "cultural_significance": "Đại diện cho sự khéo léo và tinh tế trong ẩm thực Việt.",
+    "taste": "Giòn rụm bên ngoài, nhân tươi ngon, chấm nước mắm pha.",
+    "suggestions": [
+      "Bạn có muốn biết thêm về lịch sử bánh xèo không?",
+      "Bạn muốn tôi giải thích sự khác biệt giữa bánh xèo miền Trung và miền Nam chứ?",
+      "Bạn có muốn biết lượng calo và thành phần dị ứng của bánh xèo không?"
+    ]
+  },
+  {
+    "name": "Gỏi cuốn",
+    "origin": "Miền Nam, Việt Nam",
+    "category": "Món cuốn",
+    "price_range": "25,000 - 40,000 VND",
+    "ingredients": ["bánh tráng", "tôm", "thịt heo", "rau sống", "bún"],
+    "allergens": ["tôm", "thịt heo", "gluten (bánh tráng nếu chứa bột mì)"],
+    "calos": "200 - 300 calo",
+    "serving_size": "2 cuốn ~ 150g",
+    "cooking_method": "cuốn tươi, không nấu chín thêm",
+    "flavor_profile": "tươi mát, nhẹ, chấm tương béo ngậy",
+    "diet_type": {"vegetarian": false, "low_carb": false},
+    "history": "Gỏi cuốn là món ăn dân dã miền Nam, thường ăn kèm nước chấm tương đậu phộng.",
+    "cultural_significance": "Thể hiện sự tinh tế, thanh mát của ẩm thực Việt.",
+    "taste": "Tươi mát, nhẹ, chấm tương béo ngậy.",
+    "suggestions": [
+      "Bạn có muốn biết các loại gỏi cuốn chay không?",
+      "Bạn muốn tôi hướng dẫn cách cuốn gỏi đẹp mắt chứ?",
+      "Bạn có muốn biết lượng calo và thành phần dị ứng của gỏi cuốn không?"
+    ]
+  },
+  {
+    "name": "Bánh cuốn",
+    "origin": "Bắc Bộ, Việt Nam",
+    "category": "Món hấp",
+    "price_range": "25,000 - 40,000 VND",
+    "ingredients": ["bột gạo", "thịt bằm", "mộc nhĩ", "hành phi", "nước mắm"],
+    "allergens": ["thịt", "gluten (bột gạo)"],
+    "calos": "250 - 350 calo",
+    "serving_size": "1 phần ~ 150g",
+    "cooking_method": "hấp, chấm nước mắm pha",
+    "flavor_profile": "mềm, thơm hành phi, chấm nước mắm vừa vị",
+    "diet_type": {"vegetarian": false, "low_carb": false},
+    "history": "Bánh cuốn là món ăn truyền thống lâu đời của miền Bắc.",
+    "cultural_significance": "Thường xuất hiện trong bữa sáng và các dịp lễ nhỏ.",
+    "taste": "Mềm, thơm hành phi, chấm nước mắm pha vừa vị.",
+    "suggestions": [
+      "Bạn có muốn biết thêm về lịch sử bánh cuốn không?",
+      "Bạn muốn tôi giải thích sự khác biệt giữa bánh cuốn và bánh ướt chứ?",
+      "Bạn có muốn biết lượng calo và thành phần dị ứng của bánh cuốn không?"
+    ]
+  },
+  {
+    "name": "Bún bò Huế",
+    "origin": "Huế, Việt Nam",
+    "category": "Món nước",
+    "price_range": "45,000 - 65,000 VND",
+    "ingredients": ["bún", "giò heo", "thịt bò", "chả", "sả", "ớt"],
+    "allergens": ["thịt bò", "giò heo", "gluten (bún gạo)"],
+    "calos": "450 - 550 calo",
+    "serving_size": "1 phần ~ 400g",
+    "cooking_method": "ninh xương, hầm giò heo, pha nước dùng cay",
+    "flavor_profile": "đậm đà, cay nồng, thơm mùi sả và nước dùng đỏ au",
+    "diet_type": {"vegetarian": false, "low_carb": false},
+    "history": "Bún bò Huế có nguồn gốc từ triều đình nhà Nguyễn, nổi tiếng với vị cay đặc trưng.",
+    "cultural_significance": "Là niềm tự hào của người dân xứ Huế, được UNESCO công nhận là di sản ẩm thực phi vật thể.",
+    "taste": "Đậm đà, cay nồng, thơm mùi sả và nước dùng đỏ au.",
+    "suggestions": [
+      "Bạn có muốn biết thêm về lịch sử bún bò Huế không?",
+      "Bạn muốn tôi hướng dẫn cách nấu bún bò Huế chuẩn vị chứ?",
+      "Bạn có muốn biết lượng calo và thành phần dị ứng của bún bò Huế không?"
+    ]
+  },
+  {
+    "name": "Cao lầu",
+    "origin": "Hội An, Việt Nam",
+    "category": "Món trộn",
+    "price_range": "40,000 - 60,000 VND",
+    "ingredients": ["mì cao lầu", "thịt xá xíu", "rau sống Trà Quế", "nước trộn"],
+    "allergens": ["thịt xá xíu", "gluten (mì cao lầu)"],
+    "calos": "400 - 500 calo",
+    "serving_size": "1 phần ~ 350g",
+    "cooking_method": "luộc mì, trộn với thịt và rau",
+    "flavor_profile": "mì dai, thịt đậm đà, nước trộn mặn ngọt vừa phải",
+    "diet_type": {"vegetarian": false, "low_carb": false},
+    "history": "Cao lầu có từ thế kỷ 17, chịu ảnh hưởng văn hóa Trung Hoa và Nhật Bản.",
+    "cultural_significance": "Là món đặc sản gắn liền với phố cổ Hội An.",
+    "taste": "Mì dai, thịt đậm đà, nước trộn mặn ngọt vừa phải.",
+    "suggestions": [
+      "Bạn có muốn biết sự khác biệt giữa cao lầu và mì Quảng không?",
+      "Bạn muốn tôi giới thiệu thêm đặc sản Hội An chứ?",
+      "Bạn có muốn biết lượng calo và thành phần dị ứng của cao lầu không?"
+    ]
+  },
+  {
+    "name": "Chè ba màu",
+    "origin": "Miền Nam, Việt Nam",
+    "category": "Tráng miệng",
+    "price_range": "20,000 - 30,000 VND",
+    "ingredients": ["đậu đỏ", "đậu xanh", "thạch", "nước cốt dừa", "đá bào"],
+    "allergens": ["đậu đỏ", "đậu xanh", "nước cốt dừa"],
+    "calos": "200 - 300 calo",
+    "serving_size": "1 ly ~ 250g",
+    "cooking_method": "luộc đậu, pha nước cốt dừa, trộn thạch và đá bào",
+    "flavor_profile": "ngọt béo, mát lạnh, nhiều tầng hương vị",
+    "diet_type": {"vegetarian": true, "low_carb": false},
+    "history": "Chè ba màu xuất hiện ở miền Nam từ thập niên 60, là món tráng miệng phổ biến.",
+    "cultural_significance": "Thường được dùng để giải nhiệt và tượng trưng cho sự tươi vui.",
+    "taste": "Ngọt béo, mát lạnh, nhiều tầng hương vị.",
+    "suggestions": [
+      "Bạn có muốn biết các loại chè khác không?",
+      "Bạn muốn tôi hướng dẫn cách nấu chè ba màu tại nhà chứ?",
+      "Bạn có muốn biết lượng calo và thành phần dị ứng của chè ba màu không?"
+    ]
+  },
+  {
+    "name": "Hủ tiếu Nam Vang",
+    "origin": "TP. Hồ Chí Minh, Việt Nam",
+    "category": "Món nước",
+    "price_range": "45,000 - 65,000 VND",
+    "ingredients": ["sợi hủ tiếu", "tôm", "thịt bằm", "gan", "trứng cút", "nước dùng xương"],
+    "allergens": ["tôm", "thịt bằm", "trứng", "gluten (hủ tiếu)"],
+    "calos": "400 - 500 calo",
+    "serving_size": "1 phần ~ 350g",
+    "cooking_method": "ninh xương, luộc topping, pha nước dùng",
+    "flavor_profile": "nước dùng trong, ngọt thanh từ xương, topping phong phú",
+    "diet_type": {"vegetarian": false, "low_carb": false},
+    "history": "Hủ tiếu Nam Vang du nhập từ Campuchia, được người Hoa và Việt biến tấu theo khẩu vị miền Nam.",
+    "cultural_significance": "Là món ăn sáng phổ biến nhất Sài Gòn, có thể ăn khô hoặc nước.",
+    "taste": "Nước dùng trong, ngọt thanh từ xương, topping phong phú.",
+    "suggestions": [
+      "Bạn muốn tôi giải thích sự khác biệt giữa hủ tiếu Nam Vang và hủ tiếu Mỹ Tho chứ?",
+      "Bạn có muốn hướng dẫn cách nấu hủ tiếu Nam Vang tại nhà?",
+      "Bạn có muốn biết lượng calo và thành phần dị ứng của hủ tiếu Nam Vang không?"
+    ]
+  },
+  {
+    "name": "Bánh canh cua",
+    "origin": "TP. Hồ Chí Minh, Việt Nam",
+    "category": "Món nước",
+    "price_range": "40,000 - 60,000 VND",
+    "ingredients": ["bánh canh", "thịt cua", "tôm", "giò heo", "hành phi"],
+    "allergens": ["thịt cua", "tôm", "giò heo", "gluten (bánh canh)"],
+    "calos": "400 - 500 calo",
+    "serving_size": "1 phần ~ 350g",
+    "cooking_method": "ninh cua, hầm giò heo, pha nước dùng",
+    "flavor_profile": "đậm đà, thơm mùi cua, nước dùng sánh nhẹ",
+    "diet_type": {"vegetarian": false, "low_carb": false},
+    "history": "Bánh canh cua xuất hiện từ lâu tại các quán vỉa hè ở Sài Gòn, nổi tiếng bởi vị ngọt đậm từ cua tươi.",
+    "cultural_significance": "Món ăn đặc trưng của miền Nam, được yêu thích bởi hương vị béo và đặc sệt.",
+    "taste": "Đậm đà, thơm mùi cua, nước dùng sánh nhẹ.",
+    "suggestions": [
+      "Bạn muốn biết các món bánh canh hải sản khác không?",
+      "Bạn có muốn hướng dẫn cách nấu bánh canh cua tại nhà?",
+      "Bạn có muốn biết lượng calo và thành phần dị ứng của bánh canh cua không?"
+    ]
+  },
+  {
+    "name": "Bò kho",
+    "origin": "TP. Hồ Chí Minh, Việt Nam",
+    "category": "Món hầm",
+    "price_range": "45,000 - 65,000 VND",
+    "ingredients": ["thịt bò", "cà rốt", "sả", "gừng", "bột ngũ vị hương"],
+    "allergens": ["thịt bò", "gluten (bột ngũ vị hương nếu có)"],
+    "calos": "450 - 550 calo",
+    "serving_size": "1 phần ~ 350g",
+    "cooking_method": "hầm thịt bò với gia vị, sả và gừng",
+    "flavor_profile": "đậm đà, cay nhẹ, thơm mùi sả và bò hầm mềm",
+    "diet_type": {"vegetarian": false, "low_carb": false},
+    "history": "Bò kho là món ăn du nhập từ Trung Hoa nhưng được người Sài Gòn biến tấu phù hợp khẩu vị.",
+    "cultural_significance": "Thường được ăn kèm bánh mì hoặc hủ tiếu, rất phổ biến trong bữa sáng.",
+    "taste": "Đậm đà, cay nhẹ, thơm mùi sả và bò hầm mềm.",
+    "suggestions": [
+      "Bạn có muốn biết công thức nấu bò kho tại nhà không?",
+      "Bạn muốn tôi giải thích cách chọn thịt bò để nấu bò kho chuẩn vị?",
+      "Bạn có muốn biết lượng calo và thành phần dị ứng của bò kho không?"
+    ]
+  },
+  {
+    "name": "Salad đậu hũ nướng",
+    "origin": "Việt Nam",
+    "category": "Món chính",
+    "price_range": "40,000 - 60,000 VND",
+    "ingredients": ["đậu hũ", "rau xà lách", "cà chua bi", "dưa leo", "dầu mè", "nước tương"],
+    "allergens": ["đậu nành (đậu hũ)", "dầu mè"],
+    "calos": "200 - 300 calo",
+    "serving_size": "1 phần ~ 250g",
+    "cooking_method": "nướng đậu hũ, trộn salad tươi",
+    "flavor_profile": "giòn mềm đậu hũ, tươi mát rau củ, hơi ngậy dầu mè",
+    "diet_type": {"vegetarian": true, "low_carb": true},
+    "history": "Món salad đậu hũ là món ăn hiện đại, kết hợp nguyên liệu truyền thống Việt Nam với chế độ ăn low-carb.",
+    "cultural_significance": "Thể hiện xu hướng ăn chay và ăn kiêng lành mạnh trong ẩm thực hiện đại.",
+    "taste": "Giòn mềm đậu hũ, rau củ tươi mát, vị hơi ngậy dầu mè.",
+    "suggestions": [
+      "Bạn có muốn biết cách làm salad đậu hũ nướng tại nhà không?",
+      "Bạn có muốn biết lượng calo và thành phần dị ứng của món này không?"
+    ]
+  },
+  {
+    "name": "Canh chua chay",
+    "origin": "Miền Nam, Việt Nam",
+    "category": "Món nước",
+    "price_range": "30,000 - 50,000 VND",
+    "ingredients": ["cà chua", "me chua", "dứa", "nấm rơm", "đậu bắp", "rau ngổ"],
+    "allergens": ["nấm"],
+    "calos": "80 - 120 calo",
+    "serving_size": "1 bát ~ 250ml",
+    "cooking_method": "nấu sôi các nguyên liệu, pha me chua vừa vị",
+    "flavor_profile": "chua thanh, ngọt nhẹ từ nấm và rau củ",
+    "diet_type": {"vegetarian": true, "low_carb": true},
+    "history": "Canh chua chay là biến thể chay của món canh chua miền Nam, dùng rau củ và nấm thay cho cá hoặc tôm.",
+    "cultural_significance": "Phù hợp cho người ăn chay hoặc ăn kiêng, giữ nguyên hương vị miền Nam.",
+    "taste": "Chua thanh, ngọt nhẹ từ rau củ và nấm, thơm mùi rau ngổ.",
+    "suggestions": [
+      "Bạn có muốn biết cách nấu canh chua chay chuẩn vị miền Nam không?",
+      "Bạn có muốn biết lượng calo và thành phần dị ứng không?"
+    ]
+  },
+  {
+    "name": "Bún gạo lứt xào rau củ",
+    "origin": "Việt Nam",
+    "category": "Món chính",
+    "price_range": "35,000 - 50,000 VND",
+    "ingredients": ["bún gạo lứt", "cà rốt", "bông cải xanh", "nấm", "hành tây", "dầu ô liu"],
+    "allergens": ["nấm", "dầu ô liu"],
+    "calos": "250 - 350 calo",
+    "serving_size": "1 phần ~ 300g",
+    "cooking_method": "xào rau củ và bún gạo lứt",
+    "flavor_profile": "ngọt tự nhiên từ rau củ, bún dai nhẹ, thơm dầu ô liu",
+    "diet_type": {"vegetarian": true, "low_carb": true},
+    "history": "Món bún gạo lứt xào rau củ là món ăn hiện đại, kết hợp hạt nguyên cám và rau củ cho người ăn kiêng.",
+    "cultural_significance": "Thể hiện xu hướng ăn lành mạnh, phù hợp chế độ low-carb và chay.",
+    "taste": "Ngọt tự nhiên từ rau củ, bún dai nhẹ, thơm mùi dầu ô liu.",
+    "suggestions": [
+      "Bạn có muốn tôi hướng dẫn cách xào bún gạo lứt rau củ tại nhà không?",
+      "Bạn có muốn biết lượng calo và thành phần dị ứng của món này không?"
+    ]
+  },
+  {
+    "name": "Đậu hũ kho nấm",
+    "origin": "Việt Nam",
+    "category": "Món hầm",
+    "price_range": "30,000 - 45,000 VND",
+    "ingredients": ["đậu hũ", "nấm hương", "nấm rơm", "cà rốt", "nước tương", "tỏi"],
+    "allergens": ["đậu nành", "nấm"],
+    "calos": "180 - 250 calo",
+    "serving_size": "1 phần ~ 200g",
+    "cooking_method": "kho đậu hũ với nấm và gia vị",
+    "flavor_profile": "ngọt mềm đậu hũ, thơm nấm, đậm đà nước tương",
+    "diet_type": {"vegetarian": true, "low_carb": false},
+    "history": "Đậu hũ kho nấm là món ăn chay truyền thống, dùng nấm thay thịt để tạo vị đậm đà.",
+    "cultural_significance": "Thường xuất hiện trong các mâm cơm chay, phù hợp ăn kiêng nhẹ.",
+    "taste": "Ngọt mềm đậu hũ, thơm nấm, đậm đà vị nước tương.",
+    "suggestions": [
+      "Bạn có muốn biết cách kho đậu hũ nấm ngon tại nhà không?",
+      "Bạn có muốn biết lượng calo và thành phần dị ứng của món này không?"
+    ]
+  },
+  {
+    "name": "Cháo lòng",
+    "origin": "TP. Hồ Chí Minh, Việt Nam",
+    "category": "Món cháo",
+    "price_range": "30,000 - 45,000 VND",
+    "ingredients": ["gạo", "huyết", "lòng heo", "hành lá", "tiêu"],
+    "allergens": ["lòng heo"],
+    "calos": "250 - 350 calo",
+    "serving_size": "1 bát ~ 300ml",
+    "cooking_method": "nấu gạo nhừ, thêm huyết và lòng heo, nêm gia vị",
+    "flavor_profile": "ngọt thanh từ nước dùng xương, béo nhẹ lòng, thơm mùi hành tiêu",
+    "diet_type": {"vegetarian": false, "low_carb": false},
+    "history": "Cháo lòng là món ăn sáng quen thuộc của người dân Sài Gòn từ hàng chục năm nay.",
+    "cultural_significance": "Đại diện cho phong cách ẩm thực bình dân và thân thuộc của miền Nam.",
+    "taste": "Thơm mùi hành tiêu, vị béo của lòng và nước dùng ngọt xương.",
+    "suggestions": [
+      "Bạn có muốn biết cách nấu cháo lòng chuẩn vị Nam Bộ không?",
+      "Bạn có muốn biết lượng calo và thành phần dị ứng của món này không?"
+    ]
+  },
+  {
+    "name": "Bún riêu cua",
+    "origin": "TP. Hồ Chí Minh, Việt Nam",
+    "category": "Món nước",
+    "price_range": "35,000 - 55,000 VND",
+    "ingredients": ["bún", "riêu cua", "đậu hũ", "cà chua", "mắm tôm"],
+    "allergens": ["tôm", "cua", "đậu hũ"],
+    "calos": "350 - 450 calo",
+    "serving_size": "1 bát ~ 400ml",
+    "cooking_method": "nấu nước dùng từ cua, thêm cà chua, đậu hũ, nêm mắm tôm",
+    "flavor_profile": "chua thanh, đậm đà, thơm mùi cua",
+    "diet_type": {"vegetarian": false, "low_carb": false},
+    "history": "Bún riêu được du nhập từ miền Bắc nhưng rất phổ biến ở Sài Gòn với hương vị đậm hơn.",
+    "cultural_significance": "Là món nước dân dã được yêu thích ở khắp các khu chợ và quán vỉa hè.",
+    "taste": "Chua nhẹ, đậm đà, nước dùng thơm mùi cua.",
+    "suggestions": [
+      "Bạn muốn biết cách nấu bún riêu cua đúng vị không?",
+      "Bạn có muốn biết lượng calo và thành phần dị ứng của món này không?"
+    ]
+  },
+  {
+    "name": "Chè Thái",
+    "origin": "TP. Hồ Chí Minh, Việt Nam",
+    "category": "Tráng miệng",
+    "price_range": "20,000 - 30,000 VND",
+    "ingredients": ["thạch", "sầu riêng", "long nhãn", "nước cốt dừa", "đá bào"],
+    "allergens": ["sầu riêng", "nước cốt dừa"],
+    "calos": "180 - 250 calo",
+    "serving_size": "1 cốc ~ 250ml",
+    "cooking_method": "xếp thạch và trái cây, thêm nước cốt dừa và đá bào",
+    "flavor_profile": "ngọt béo, mát lạnh, thơm mùi sầu riêng",
+    "diet_type": {"vegetarian": true, "low_carb": false},
+    "history": "Chè Thái du nhập từ Thái Lan, được biến tấu tại Sài Gòn với hương vị ngọt dịu và nhiều topping.",
+    "cultural_significance": "Là món ăn tráng miệng phổ biến trong các quán chè Sài Gòn.",
+    "taste": "Ngọt béo, mát lạnh, mùi thơm của sầu riêng và nước cốt dừa.",
+    "suggestions": [
+      "Bạn muốn biết cách làm chè Thái ngon tại nhà không?",
+      "Bạn có muốn biết lượng calo và thành phần dị ứng của món này không?"
+    ]
+  },
+  {
+    "name": "Bánh tráng trộn",
+    "origin": "TP. Hồ Chí Minh, Việt Nam",
+    "category": "Ăn vặt",
+    "price_range": "20,000 - 35,000 VND",
+    "ingredients": ["bánh tráng", "trứng cút", "xoài xanh", "tôm khô", "muối tôm", "hành phi"],
+    "allergens": ["trứng cút", "tôm khô"],
+    "calos": "200 - 300 calo",
+    "serving_size": "1 phần ~ 150g",
+    "cooking_method": "trộn bánh tráng với các loại topping và gia vị",
+    "flavor_profile": "chua, cay, mặn, ngọt hòa quyện",
+    "diet_type": {"vegetarian": false, "low_carb": false},
+    "history": "Xuất hiện từ những năm 2000, bánh tráng trộn là món ăn vặt nổi tiếng gắn liền với giới trẻ Sài Gòn.",
+    "cultural_significance": "Đại diện cho văn hóa ẩm thực đường phố phong phú và sáng tạo của người Sài Gòn.",
+    "taste": "Chua, cay, mặn, ngọt hòa quyện hấp dẫn.",
+    "suggestions": [
+      "Bạn muốn biết cách làm bánh tráng trộn tại nhà không?",
+      "Bạn có muốn biết lượng calo và thành phần dị ứng của món này không?"
+    ]
+  },
+  {
+    "name": "Bánh ướt lòng gà",
+    "origin": "TP. Hồ Chí Minh, Việt Nam",
+    "category": "Món nước",
+    "price_range": "40,000 - 55,000 VND",
+    "ingredients": ["bánh ướt", "lòng gà", "rau răm", "hành phi", "nước mắm chua ngọt"],
+    "allergens": ["lòng gà", "nước mắm"],
+    "calos": "300 - 400 calo",
+    "serving_size": "1 phần ~ 250g",
+    "cooking_method": "tráng bánh ướt, thêm lòng gà luộc, rắc hành phi và rưới nước mắm",
+    "flavor_profile": "béo nhẹ, thơm hành phi, nước mắm đậm đà",
+    "diet_type": {"vegetarian": false, "low_carb": false},
+    "history": "Món bánh ướt kết hợp lòng gà là đặc sản Đà Lạt, nhưng được yêu thích rộng rãi ở Sài Gòn.",
+    "cultural_significance": "Thể hiện sự giao thoa ẩm thực giữa các vùng miền.",
+    "taste": "Béo nhẹ, thơm hành phi, nước mắm đậm đà.",
+    "suggestions": [
+      "Bạn có muốn biết cách pha nước mắm ngon cho bánh ướt lòng gà không?",
+      "Bạn có muốn biết lượng calo và thành phần dị ứng của món này không?"
+    ]
+  },
+  {
+    "name": "Cơm gà xối mỡ",
+    "origin": "TP. Hồ Chí Minh, Việt Nam",
+    "category": "Món cơm",
+    "price_range": "45,000 - 65,000 VND",
+    "ingredients": ["gà chiên", "cơm vàng", "dưa leo", "nước mắm tỏi ớt"],
+    "allergens": ["gà"],
+    "calos": "500 - 650 calo",
+    "serving_size": "1 phần ~ 300g",
+    "cooking_method": "chiên gà giòn, phục vụ cùng cơm vàng và nước mắm tỏi ớt",
+    "flavor_profile": "giòn, béo, mặn cay",
+    "diet_type": {"vegetarian": false, "low_carb": false},
+    "history": "Cơm gà xối mỡ là món phổ biến từ thập niên 1990, được chế biến theo phong cách Sài Gòn độc đáo.",
+    "cultural_significance": "Một biểu tượng ẩm thực bình dân nhưng đậm đà hương vị miền Nam.",
+    "taste": "Da gà giòn tan, cơm béo thơm, nước mắm cay nồng.",
+    "suggestions": [
+      "Bạn muốn biết cách chiên gà xối mỡ giòn lâu không?",
+      "Bạn có muốn biết lượng calo và thành phần dị ứng của món này không?"
+    ]
+  },
+  {
+    "name": "Bún mắm",
+    "origin": "TP. Hồ Chí Minh, Việt Nam",
+    "category": "Món nước",
+    "price_range": "50,000 - 70,000 VND",
+    "ingredients": ["bún", "mắm cá linh", "tôm", "mực", "thịt heo quay", "rau sống"],
+    "allergens": ["tôm", "mực", "thịt heo"],
+    "calos": "400 - 550 calo",
+    "serving_size": "1 bát ~ 400ml",
+    "cooking_method": "nấu nước lèo từ mắm cá linh, thêm hải sản và thịt quay, phục vụ cùng bún và rau sống",
+    "flavor_profile": "mặn đậm, hương mắm đặc trưng, vị ngọt hải sản",
+    "diet_type": {"vegetarian": false, "low_carb": false},
+    "history": "Bắt nguồn từ miền Tây, bún mắm được du nhập vào Sài Gòn và trở thành món ăn quen thuộc.",
+    "cultural_significance": "Mang đậm bản sắc ẩm thực miền Tây Nam Bộ trong lòng Sài Gòn.",
+    "taste": "Mặn, đậm, hương mắm đặc trưng hòa quyện với vị ngọt hải sản.",
+    "suggestions": [
+      "Bạn muốn biết cách nấu bún mắm chuẩn vị không?",
+      "Bạn có muốn biết lượng calo và thành phần dị ứng của món này không?"
+    ]
+  },
+  {
+    "name": "Sủi cảo",
+    "origin": "TP. Hồ Chí Minh, Việt Nam",
+    "category": "Món Hoa",
+    "price_range": "55,000 - 70,000 VND",
+    "ingredients": ["sủi cảo", "thịt heo bằm", "tôm", "hành lá", "nước lèo"],
+    "allergens": ["tôm", "thịt heo", "bột mì"],
+    "calos": "350 - 450 calo",
+    "serving_size": "1 phần ~ 6 cái",
+    "cooking_method": "hấp sủi cảo, phục vụ cùng nước lèo thanh ngọt",
+    "flavor_profile": "mềm, đậm đà, thanh ngọt",
+    "diet_type": {"vegetarian": false, "low_carb": false},
+    "history": "Là món Hoa du nhập vào Chợ Lớn từ thế kỷ 19, được người Việt yêu thích đến nay.",
+    "cultural_significance": "Biểu tượng ẩm thực người Hoa ở khu vực Quận 5.",
+    "taste": "Vỏ mỏng, nhân đậm đà, nước lèo thanh ngọt.",
+    "suggestions": [
+      "Bạn muốn biết cách làm sủi cảo ngon tại nhà không?",
+      "Bạn có muốn biết lượng calo và thành phần dị ứng của món này không?"
+    ]
+  },
+  {
+    "name": "Bột chiên",
+    "origin": "TP. Hồ Chí Minh, Việt Nam",
+    "category": "Ăn vặt",
+    "price_range": "20,000 - 35,000 VND",
+    "ingredients": ["bột gạo", "trứng", "hành lá", "tương đen", "đu đủ bào"],
+    "allergens": ["trứng", "bột gạo"],
+    "calos": "250 - 350 calo",
+    "serving_size": "1 phần ~ 200g",
+    "cooking_method": "chiên bột gạo với trứng, rắc hành lá và phục vụ cùng tương đen",
+    "flavor_profile": "giòn, mềm, mặn ngọt hài hòa",
+    "diet_type": {"vegetarian": false, "low_carb": false},
+    "history": "Bột chiên có nguồn gốc từ người Hoa và đã trở thành món ăn đường phố phổ biến ở Sài Gòn.",
+    "cultural_significance": "Một phần không thể thiếu trong văn hóa ẩm thực học sinh Sài Gòn.",
+    "taste": "Giòn bên ngoài, mềm bên trong, vị mặn ngọt hài hòa.",
+    "suggestions": [
+      "Bạn muốn biết cách làm bột chiên tại nhà không?",
+      "Bạn có muốn biết lượng calo và thành phần dị ứng của món này không?"
+    ]
+  },
+  {
+    "name": "Mì vịt tiềm",
+    "origin": "TP. Hồ Chí Minh, Việt Nam",
+    "category": "Món Hoa",
+    "price_range": "60,000 - 90,000 VND",
+    "ingredients": ["vịt tiềm thuốc bắc", "mì trứng", "nấm đông cô", "rau cải"],
+    "allergens": ["vịt", "trứng", "nấm"],
+    "calos": "450 - 600 calo",
+    "serving_size": "1 bát ~ 350ml",
+    "cooking_method": "hầm vịt với thuốc bắc, phục vụ cùng mì trứng và rau cải",
+    "flavor_profile": "đậm đà, thơm mùi thuốc bắc, thịt mềm",
+    "diet_type": {"vegetarian": false, "low_carb": false},
+    "history": "Món ăn gốc Hoa, phổ biến trong cộng đồng người Hoa Chợ Lớn.",
+    "cultural_significance": "Được xem là món ăn bổ dưỡng và tinh tế trong ẩm thực Hoa – Việt.",
+    "taste": "Đậm đà, thơm mùi thuốc bắc, thịt vịt mềm ngọt.",
+    "suggestions": [
+      "Bạn muốn biết công thức nấu mì vịt tiềm tại nhà không?",
+      "Bạn có muốn biết lượng calo và thành phần dị ứng của món này không?"
+    ]
+  },
+  {
+    "name": "Cơm chiên Dương Châu",
+    "origin": "TP. Hồ Chí Minh, Việt Nam",
+    "category": "Món Hoa",
+    "price_range": "50,000 - 70,000 VND",
+    "ingredients": ["cơm nguội", "tôm", "xá xíu", "trứng", "đậu Hà Lan"],
+    "allergens": ["tôm", "trứng", "thịt heo"],
+    "calos": "450 - 600 calo",
+    "serving_size": "1 phần ~ 300g",
+    "cooking_method": "xào cơm nguội với tôm, xá xíu, trứng và đậu Hà Lan",
+    "flavor_profile": "tơi xốp, mặn ngọt cân bằng",
+    "diet_type": {"vegetarian": false, "low_carb": false},
+    "history": "Là món ăn Hoa phổ biến, dễ ăn và phù hợp khẩu vị người Việt.",
+    "cultural_significance": "Phản ánh sự hòa quyện văn hóa Hoa – Việt trong ẩm thực Sài Gòn.",
+    "taste": "Cơm tơi xốp, vị mặn ngọt cân bằng.",
+    "suggestions": [
+      "Bạn muốn biết cách làm cơm chiên Dương Châu tại nhà không?",
+      "Bạn có muốn biết lượng calo và thành phần dị ứng của món này không?"
+    ]
+  },
+  {
+    "name": "Chè khúc bạch",
+    "origin": "TP. Hồ Chí Minh, Việt Nam",
+    "category": "Tráng miệng",
+    "price_range": "25,000 - 40,000 VND",
+    "ingredients": ["sữa tươi", "kem béo", "hạnh nhân lát", "vải", "đường phèn"],
+    "allergens": ["sữa", "hạnh nhân"],
+    "calos": "200 - 300 calo",
+    "serving_size": "1 cốc ~ 250ml",
+    "cooking_method": "nấu khúc bạch từ sữa và kem, thêm hạnh nhân và trái cây",
+    "flavor_profile": "mát lạnh, béo nhẹ, thơm sữa",
+    "diet_type": {"vegetarian": true, "low_carb": false},
+    "history": "Chè khúc bạch xuất hiện khoảng năm 2013 và nhanh chóng trở thành món tráng miệng yêu thích của giới trẻ Sài Gòn.",
+    "cultural_significance": "Món ăn biểu trưng cho sự sáng tạo và hiện đại trong ẩm thực TP.HCM.",
+    "taste": "Mát lạnh, béo nhẹ, thơm mùi sữa.",
+    "suggestions": [
+      "Bạn muốn biết cách làm chè khúc bạch tại nhà không?",
+      "Bạn có muốn biết lượng calo và thành phần dị ứng của món này không?"
+    ]
+  },
+  {
+    "name": "Bò lá lốt",
+    "origin": "TP. Hồ Chí Minh, Việt Nam",
+    "category": "Món nướng",
+    "price_range": "40,000 - 60,000 VND",
+    "ingredients": ["thịt bò bằm", "lá lốt", "hành tím", "tỏi", "nước mắm"],
+    "allergens": ["bò", "tỏi"],
+    "calos": "350 - 450 calo",
+    "serving_size": "1 phần ~ 200g (4-5 cuốn)",
+    "cooking_method": "ướp thịt bò với gia vị, cuốn trong lá lốt, nướng than",
+    "flavor_profile": "thơm lá lốt, mềm thịt, cay nhẹ",
+    "diet_type": {"vegetarian": false, "low_carb": true},
+    "history": "Bò lá lốt là món ăn đường phố miền Nam, khi bò bằm được quấn trong lá lốt rồi nướng than.",
+    "cultural_significance": "Thể hiện sự sáng tạo trong ẩm thực Nam Bộ, thích hợp cho món nhậu và ăn cùng bạn bè.",
+    "taste": "Thịt mềm, thơm mùi lá lốt, chấm nước mắm ớt cay nhẹ.",
+    "suggestions": [
+      "Bạn muốn biết cách ướp bò lá lốt để nướng ngon tại nhà không?",
+      "Bạn có muốn biết lượng calo và thành phần dị ứng của món này không?"
+    ]
+  },
+  {
+    "name": "Xôi gà",
+    "origin": "TP. Hồ Chí Minh, Việt Nam",
+    "category": "Món sáng",
+    "price_range": "25,000 - 40,000 VND",
+    "ingredients": ["xôi nếp", "gà xé", "mỡ hành", "hành phi", "đậu phộng"],
+    "allergens": ["gà", "đậu phộng"],
+    "calos": "400 - 500 calo",
+    "serving_size": "1 phần ~ 250g",
+    "cooking_method": "hấp xôi, xé gà trộn mỡ hành, rắc hành phi và đậu phộng",
+    "flavor_profile": "mềm xôi, thơm gà, béo mỡ hành, giòn hành phi",
+    "diet_type": {"vegetarian": false, "low_carb": false},
+    "history": "Xôi gà xuất hiện ở các quán sáng sớm tại Sài Gòn, là lựa chọn nhanh chóng và đầy đủ dinh dưỡng.",
+    "cultural_significance": "Một phần của văn hóa ăn sáng đường phố Sài Gòn.",
+    "taste": "Xôi mềm dẻo, gà thơm, mỡ hành béo nhẹ, hành phi giòn.",
+    "suggestions": [
+      "Bạn muốn biết cách làm xôi gà ngon tại nhà không?",
+      "Bạn có muốn biết lượng calo và thành phần dị ứng của món này không?"
+    ]
+  },
+  {
+    "name": "Bánh tráng nướng",
+    "origin": "TP. Hồ Chí Minh, Việt Nam",
+    "category": "Ăn vặt",
+    "price_range": "20,000 - 35,000 VND",
+    "ingredients": ["bánh tráng", "trứng cút", "hành lá", "ruốc", "tương ớt"],
+    "allergens": ["trứng", "bột mì", "ruốc"],
+    "calos": "200 - 300 calo",
+    "serving_size": "1 chiếc ~ 150g",
+    "cooking_method": "nướng bánh tráng trên than hoặc bếp điện, thêm trứng cút, ruốc, hành lá, tương ớt",
+    "flavor_profile": "giòn, đậm vị, hơi cay ngọt",
+    "diet_type": {"vegetarian": false, "low_carb": false},
+    "history": "Bánh tráng nướng kiểu đường phố được phổ biến tại Sài Gòn và biến tấu theo nhiều kiểu topping.",
+    "cultural_significance": "Biểu tượng của văn hóa ăn vặt tại TP.HCM.",
+    "taste": "Giòn bánh tráng, đậm vị ruốc, trứng cút, tương ớt hơi cay ngọt.",
+    "suggestions": [
+      "Bạn muốn biết các loại topping bánh tráng nướng phổ biến không?",
+      "Bạn có muốn biết lượng calo và thành phần dị ứng của món này không?"
+    ]
+  },
+  {
+    "name": "Bò né (steak & eggs kiểu Sài Gòn)",
+    "origin": "TP. Hồ Chí Minh, Việt Nam",
+    "category": "Món sáng/hạng sang",
+    "price_range": "55,000 - 80,000 VND",
+    "ingredients": ["thịt bò lát mỏng", "trứng ốp", "bánh mì", "bơ tỏi"],
+    "allergens": ["bò", "trứng", "bột mì", "bơ"],
+    "calos": "500 - 650 calo",
+    "serving_size": "1 phần ~ 300g",
+    "cooking_method": "áp chảo thịt bò, rán trứng, phục vụ cùng bánh mì và bơ tỏi",
+    "flavor_profile": "mềm bò, béo trứng, giòn bánh mì, thơm bơ tỏi",
+    "diet_type": {"vegetarian": false, "low_carb": false},
+    "history": "Bò né là món sáng phổ biến ở Sài Gòn từ cuối thế kỷ 20, thường được bày trên chảo gang lửa bập bùng.",
+    "cultural_significance": "Một sự pha trộn phong cách Á-Âu trong ẩm thực Sài Gòn.",
+    "taste": "Bò mềm, trứng béo, bánh mì giòn – ăn kèm bơ tỏi thơm và nước sốt riêng.",
+    "suggestions": [
+      "Bạn muốn biết cách chọn thịt bò và làm bò né chuẩn Sài Gòn không?",
+      "Bạn có muốn biết lượng calo và thành phần dị ứng của món này không?"
+    ]
+  },
+  {
+    "name": "Phá lấu bò",
+    "origin": "TP. Hồ Chí Minh, Việt Nam",
+    "category": "Món nhậu",
+    "price_range": "40,000 - 60,000 VND",
+    "ingredients": ["bò và lòng bò", "nước dừa", "ngũ vị hương", "tiêu", "chấm me/ớt"],
+    "allergens": ["bò"],
+    "calos": "400 - 550 calo",
+    "serving_size": "1 phần ~ 250g",
+    "cooking_method": "nấu bò và lòng bò trong nước dừa với gia vị, ăn kèm nước chấm me/ớt",
+    "flavor_profile": "béo, thơm, mềm, cay chua",
+    "diet_type": {"vegetarian": false, "low_carb": false},
+    "history": "Phá lấu bò là món ăn đêm rất phổ biến ở Sài Gòn, chế biến từ nội tạng bò nấu nước dừa, gia vị đặc trưng.",
+    "cultural_significance": "Thực sự là một phần của văn hoá ẩm thực đêm và ẩm thực nhậu tại TP.HCM.",
+    "taste": "Béo, thơm nước dừa và ngũ vị, lòng mềm, chấm me cay chua rất cân bằng.",
+    "suggestions": [
+      "Bạn muốn biết cách nấu phá lấu bò tại nhà không?",
+      "Bạn có muốn biết lượng calo và thành phần dị ứng của món này không?"
+    ]
+  }
+]
+
+

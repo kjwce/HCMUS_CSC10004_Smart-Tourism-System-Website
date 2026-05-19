@@ -1,0 +1,22 @@
+# --- Web Framework & Utilities ---
+Flask==3.0.0
+Flask-Cors==4.0.0
+Werkzeug==3.0.1
+requests==2.31.0
+python-dotenv==1.0.0
+
+# --- AI & Natural Language Processing ---
+google-generativeai==0.3.2
+sentence-transformers==2.2.2
+chromadb==0.4.24
+
+# --- Computer Vision & Image Processing ---
+torch==2.1.2
+torchvision==0.16.2
+Pillow==10.1.0
+opencv-python==4.8.1.78
+easyocr==1.7.1
+numpy==1.24.3
+
+# --- Mail & Security ---
+flask-mailman==0.1.0

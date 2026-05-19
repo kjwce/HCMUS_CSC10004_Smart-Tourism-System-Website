@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FoodieFinds | Home</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link rel="icon" type="image/png" href="{{ url_for('static', filename='images/logo.png') }}">
+</head>
+<body>
+
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+    <div class="logo">
+      <img src="{{ url_for('static', filename='images/logo.png') }}" alt="Logo" />
+      <h2>FoodieFinds</h2>
+    </div>
+    
+    <nav class="nav-links">
+      <a href="{{ url_for('home') }}" class="active" id="nav-home" data-key="Home">Home</a>
+      <a href="#about" id="nav-about" data-key="About">About</a>
+      <a href="{{ url_for('search') }}" id="nav-search" data-key="Search">Search</a>
+      <a href="{{ url_for('community') }}" data-key="Community">Community</a>
+    </nav>
+
+    <!-- Nút chuyển ngôn ngữ-->
+    <div class="lang-toggle2" id="langToggle2">
+      <span class="label left">VI</span>
+      <div class="track" id="langTrack">
+        <div class="slider"></div>
+      </div>
+      <span class="label right">EN</span>
+    </div>
+
+    {% if 'username' in session %}
+      <div class="user-avatar" id="userAvatar">
+        <img src="{{ url_for('static', filename='uploads/' + (session.avatar or 'default-avatar.png')) }}" alt="User Avatar">
+        <div class="dropdown-menu" id="userDropdown">
+          <a href="{{ url_for('form_user') }}" data-key="View Profile">View my profile</a>
+          <a href="{{ url_for('auth.logout', next=request.url) }}" data-key="Log out">Log out</a>
+        </div>
+      </div>
+    {% endif %}
+    </header>
+
+    <!-- WELCOME SECTION -->
+    <section class="welcome-section">
+      <div class="welcome-content">
+        <h3 data-key="WELCOME TO">WELCOME TO</h3>
+        <h1 class="title-gradient">FoodieFinds</h1>
+        <p data-key="Slogan">
+          Discover the top-rated dishes from the food-loving community — new flavors every day!
+        </p>
+
+        {% if 'username' not in session %}
+          <a href="{{ url_for('form_login') }}" class="login-btn" data-key="Log in / Sign up">Log in / Sign up</a>
+        {% endif %}
+      </div>
+    </section>
+
+  <!-- BLEND TRANSITION -->
+  <div class="transition-blend"></div>
+
+  <!-- ABOUT SECTION -->
+  <section id="about" class="intro-section">
+    <div class="intro-container fade-up">
+      <div class="circle"></div>
+      <h1 data-key="Something about FoodieFinds">Something about FoodieFinds</h1>
+      <p>
+        <span data-key="Description1">
+          FoodieFinds is a platform that helps you search and discover restaurants that suit you and your favorite dishes!
+        </span>
+        <br><br>
+        <span data-key="Description2">
+          We always want to bring an interesting culinary experience, helping you not only eat well but also understand more about the culture and story behind each dish.
+        </span>
+      </p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-contact fade-in">
+      <h2 data-key="Contact">Contact us</h2>
+      <div class="footer-contact-box">
+
+        <div class="contact-info">
+          <p><i class="bx bx-map"></i> 227 Nguyen Van Cu, TP.HCM</p>
+          <p><i class="bx bx-phone"></i> +84 123 456 789</p>
+          <p><i class="bx bx-envelope"></i> contact@foodiefinds.vn</p>
+
+          <div class="social-icons">
+            <a href="#"><i class="bx bxl-facebook"></i></a>
+            <a href="#"><i class="bx bxl-instagram"></i></a>
+            <a href="#"><i class="bx bxl-youtube"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bg">
+    <p class="copyright">© 2025 FoodieFinds. All rights reserved.</p>
+  </footer>
+
+  <!-- SCRIPT ACTIVE TAB + FADE EFFECT -->
+  <script> 
+    document.addEventListener('DOMContentLoaded', function() {
+      const avatar = document.getElementById('userAvatar');
+      const dropdown = document.getElementById('userDropdown');
+
+      if (avatar && dropdown) {
+        avatar.addEventListener('click', (e) => {
+          e.stopPropagation(); // tránh xung đột khi click ngoài
+          dropdown.classList.toggle('show');
+        });
+
+        // Ẩn dropdown khi click ra ngoài
+        document.addEventListener('click', (e) => {
+          if (!avatar.contains(e.target)) {
+            dropdown.classList.remove('show');
+          }
+        });
+      }
+    });
+
+    const aboutSection = document.getElementById("about");
+    const navHome = document.getElementById("nav-home");
+    const navAbout = document.getElementById("nav-about");
+
+    window.addEventListener("scroll", () => {
+      const scrollPos = window.scrollY + window.innerHeight / 2;
+
+      // Navbar active
+      if (scrollPos < aboutSection.offsetTop) {
+        navHome.classList.add("active");
+        navAbout.classList.remove("active");
+      } else {
+        navHome.classList.remove("active");
+        navAbout.classList.add("active");
+      }
+
+      // Fade-in animation for footer
+      document.querySelectorAll('.fade-in').forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight - 100) {
+          el.classList.add('visible');
+        }
+      });
+    });
+  </script>
+  <script src="{{ url_for('static', filename='js/lang.js') }}"></script>
+</body>
+</html>
